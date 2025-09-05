@@ -50,28 +50,25 @@ export const DivWrapperSubsection = (): JSX.Element => {
   ];
 
   const renderWeaponCard = (item: (typeof weaponItems)[0], index: number) => (
-    <div key={index} className="relative w-[104px] h-[104px]">
-      <div className="relative h-[104px] rounded-[12.6px]">
+    <div key={index} className="aspect-square">
+      <div className="relative h-full rounded-xl">
         <div
-          className={`absolute w-[104px] h-[104px] top-0 left-0 bg-zinc-900 rounded-[12.6px] overflow-hidden border-l-[0.53px] border-solid ${item.borderColor}`}
+          className={`absolute inset-0 bg-zinc-900 rounded-xl overflow-hidden border-l-2 ${item.borderColor}`}
         >
-          <div className="relative w-[129px] h-[91px] -top-7 left-[-27px]">
+          <div className="absolute inset-0 flex items-center justify-center">
             <div
-              className={`absolute w-14 h-14 top-0 left-0 ${item.glowColor} rounded-[27.83px] blur-[26.26px] bg-blend-screen`}
+              className={`absolute w-12 h-12 ${item.glowColor} rounded-full blur-xl opacity-50`}
             />
-            <img
-              className="absolute w-24 h-[60px] top-[31px] left-8 object-cover"
-              alt="Rectangle"
-            />
+            <div className="w-16 h-10 bg-white/10 rounded"></div>
           </div>
         </div>
-        <div className="absolute w-14 h-[9px] top-[68px] left-[7px] [font-family:'Roboto',Helvetica] font-medium text-[#ffffff80] text-[10.5px] tracking-[0] leading-[25.2px] whitespace-nowrap">
+        <div className="absolute bottom-6 left-2 text-white/60 text-xs font-medium">
           {item.weapon}
         </div>
-        <div className="absolute top-[11px] left-[82px] text-[10.5px] leading-[25.2px] [font-family:'Roboto',Helvetica] font-medium text-[#ffffff80] tracking-[0] whitespace-nowrap">
+        <div className="absolute top-2 right-2 text-white/60 text-xs font-medium">
           {item.condition}
         </div>
-        <div className="absolute w-[77px] h-[9px] top-[82px] left-[7px] [font-family:'Roboto',Helvetica] font-medium text-white text-[14.7px] tracking-[0] leading-[25.2px] whitespace-nowrap">
+        <div className="absolute bottom-2 left-2 text-white text-sm font-medium truncate max-w-[calc(100%-1rem)]">
           {item.skin}
         </div>
       </div>
@@ -79,55 +76,52 @@ export const DivWrapperSubsection = (): JSX.Element => {
   );
 
   return (
-    <section className="relative w-full bg-[#1b1b1c] rounded-[21.01px] overflow-hidden p-3">
-      <div className="absolute top-[18px] left-5 [font-family:'Roboto',Helvetica] font-medium text-[#ffffff80] text-[12.6px] tracking-[0] leading-[15.8px] whitespace-nowrap">
-        Posted 2 days ago
-      </div>
-
-      <Button
-        variant="outline"
-        className="absolute top-3.5 right-[11px] h-7 px-[38.86px] py-[6.3px] rounded-[8.4px] border-[1.05px] border-[#d27282] bg-transparent text-white hover:bg-[#d27282]/10"
-      >
-        <MessageSquareIcon className="w-[19px] h-[19px] mr-2" />
-        <span className="[font-family:'Roboto',Helvetica] font-medium text-[12.6px]">
-          Chat
-        </span>
-      </Button>
-
-      <div className="flex items-center justify-center gap-4 mt-12">
-        <Card className="w-[342px] h-[251px] bg-[#1e1e1e] border-0 rounded-[16.8px] overflow-hidden">
-          <CardContent className="p-0 relative h-full">
-            <div className="absolute w-[81px] h-4 top-2 left-[11px] [font-family:'Roboto',Helvetica] font-medium text-white text-[16.8px] tracking-[0] leading-[25.2px] whitespace-nowrap">
-              OFFERING
-            </div>
-            <div className="absolute w-[55px] h-[15px] top-[9px] left-[276px] [font-family:'Roboto_Mono',Helvetica] font-medium text-[#ffffff80] text-[12.6px] tracking-[0] leading-[25.2px] whitespace-nowrap">
-              $271.68
-            </div>
-
-            <div className="grid grid-cols-3 gap-[4px] absolute top-[29px] left-[11px]">
-              {weaponItems.map((item, index) => renderWeaponCard(item, index))}
-            </div>
+    <section className="w-full bg-[#1b1b1c] rounded-3xl overflow-hidden p-4 sm:p-6">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+        <div className="flex-1">
+          <Card className="bg-[#1e1e1e] rounded-2xl border-0 h-full">
+            <CardContent className="p-4 sm:p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-white font-medium text-lg">OFFERING</h3>
+                <span className="text-white/60 font-mono text-sm">$271.68</span>
+              </div>
+              
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+                {weaponItems.map((item, index) => renderWeaponCard(item, index))}
+              </div>
+            </CardContent>
           </CardContent>
         </Card>
 
-        <div className="flex items-center justify-center">
-          <ArrowLeftRightIcon className="w-[30px] h-[34px] text-white" />
+        <div className="flex items-center justify-center lg:px-4">
+          <ArrowLeftRightIcon className="w-8 h-8 text-white transform rotate-90 lg:rotate-0" />
         </div>
 
-        <Card className="w-[342px] h-[251px] bg-[#1e1e1e] border-0 rounded-[16.8px] overflow-hidden">
-          <CardContent className="p-0 relative h-full">
-            <div className="absolute w-[81px] h-4 top-2 left-[11px] [font-family:'Roboto',Helvetica] font-medium text-white text-[16.8px] tracking-[0] leading-[25.2px] whitespace-nowrap">
-              ASKING
-            </div>
-            <div className="absolute w-[55px] h-[15px] top-[9px] left-[276px] [font-family:'Roboto_Mono',Helvetica] font-medium text-[#ffffff80] text-[12.6px] tracking-[0] leading-[25.2px] whitespace-nowrap">
-              $271.68
-            </div>
-
-            <div className="grid grid-cols-3 gap-[4px] absolute top-[29px] left-[11px]">
-              {weaponItems.map((item, index) => renderWeaponCard(item, index))}
-            </div>
+        <div className="flex-1">
+          <Card className="bg-[#1e1e1e] rounded-2xl border-0 h-full">
+            <CardContent className="p-4 sm:p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-white font-medium text-lg">ASKING</h3>
+                <span className="text-white/60 font-mono text-sm">$271.68</span>
+              </div>
+              
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+                {weaponItems.map((item, index) => renderWeaponCard(item, index))}
+              </div>
+            </CardContent>
           </CardContent>
         </Card>
+      </div>
+      
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mt-6">
+        <span className="text-white/60 text-sm">Posted 2 days ago</span>
+        <Button
+          variant="outline"
+          className="border-[#d27282] text-white hover:bg-[#d27282]/10 rounded-xl px-6 py-2"
+        >
+          <MessageSquareIcon className="w-4 h-4 mr-2" />
+          Chat
+        </Button>
       </div>
     </section>
   );

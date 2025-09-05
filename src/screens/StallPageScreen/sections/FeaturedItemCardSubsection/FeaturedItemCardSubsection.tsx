@@ -5,13 +5,42 @@ import { Card, CardContent } from "../../../../components/ui/card";
 
 export const FeaturedItemCardSubsection = (): JSX.Element => {
   return (
-    <Card className="w-full max-w-[492px] h-[254px] rounded-[27.89px] overflow-hidden relative">
-      <CardContent className="p-0 h-full relative">
-        <div className="absolute w-full h-full bg-cover bg-center bg-[50%_50%]">
-          <img
-            className="absolute w-full h-[138px] bottom-0 left-0"
-            alt="Mask group"
-          />
+    <div className="flex justify-center">
+      <Card className="w-full max-w-md sm:max-w-lg h-64 sm:h-72 rounded-3xl overflow-hidden relative bg-gradient-to-br from-zinc-800 to-zinc-900">
+        <CardContent className="p-0 h-full relative">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+          
+          <div className="absolute bottom-6 left-6 right-6">
+            <div className="flex items-start justify-between mb-4">
+              <div>
+                <div className="text-white/60 text-lg sm:text-xl font-medium mb-1">
+                  AWP
+                </div>
+                <div className="text-white text-2xl sm:text-3xl font-bold mb-2">
+                  Hyper Beast
+                </div>
+                <div className="text-white/60 text-sm">
+                  1x Vox Eminor (Holo) | Katowice 2014
+                </div>
+              </div>
+              <div className="text-white/60 text-sm font-medium">
+                FT
+              </div>
+            </div>
+            
+            <Button
+              className="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm text-white rounded-xl px-6 py-2 transition-all duration-200"
+              variant="ghost"
+            >
+              <UserIcon className="w-4 h-4 mr-2" />
+              Contact
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
         </div>
 
         <div className="absolute w-[243px] h-20 top-[162px] left-5">
